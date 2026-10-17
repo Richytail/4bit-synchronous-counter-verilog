@@ -1,0 +1,27 @@
+Testbench
+-------------------------------------------------
+module up_counter_tb() ;
+  reg clock,reset ;
+  wire[3:0] count ;
+  
+  up_counter dut (clock,reset,count) ;
+  
+initial begin
+	clock = 0 ;
+    forever #10 clock =~clock ;
+end
+  
+initial begin
+  	$dumpfile("dump.vcd") ;
+    $dumpvars(0,dut);
+    $monitor("Time=%0t clock =%b reset =%b count =%b", $time,clock,reset,count);
+    #0 reset=1;
+    #25 reset=0;
+    
+    repeat(40)
+      @ (posedge clock);
+  
+  $finish();
+end 
+endmodule
+---------------------------------------------------------------
