@@ -15,7 +15,7 @@ and verified with a self-written testbench.
 Simulated in EDA Playground using Icarus Verilog.
 Waveform output:
 
-![Waveform](docs/waveform.png)
+![Waveform](waveform.png)
 
 ## What I learned
 - Reset timing: releasing reset at #25 (mid-cycle) rather than on a clock
